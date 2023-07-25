@@ -3,14 +3,13 @@ import datetime
 
 data = pd.DataFrame()
 data = pd.read_pickle('data')
-data = data.set_index('катал. номер')
+data = data.set_index('катал. номер') # установка артикулов индексами
 
-arts = list(set(data.index))
-#arts = ['JAA0140']
+arts = list(set(data.index)) # создание списка артикулов
 
-new_data = {}
+completed_data = {}
 
-for art in arts:
+for art in arts: # Парсинг таблицы
     if data.loc[art, 'Дата старости'][0] == 0:
         old_date = ''
     else:
@@ -19,7 +18,7 @@ for art in arts:
             int(data.loc[art, 'Дата старости'][0][3:5]),
             int(data.loc[art, 'Дата старости'][0][0:2])
         )
-    new_data[art] = {
+    completed_data[art] = {
         'remains': pd.Series(list(data.loc[art, 'Остаток на дату'][1:]),
                              list(data.loc[art, 'Дата'][1:])),
         'old_date': old_date,

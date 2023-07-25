@@ -1,5 +1,4 @@
 import datetime
-import pandas as pd
 
 
 def calc_first_sign(remains, zero, deficit, proficit, old_date, have_sales,

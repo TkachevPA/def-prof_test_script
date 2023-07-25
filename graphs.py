@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 import pandas as pd
 
-from parser import new_data as data
+from parser import completed_data as data
 from main import first_sign, second_sign, result
 
 res = [i.split(' ')[0] for i in result]

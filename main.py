@@ -1,4 +1,4 @@
-from parser import new_data as data
+from parser import completed_data as data
 from calc_dp import calc_second_sign, calc_first_sign
 
 
@@ -23,5 +23,9 @@ for art in data:
     if second_sign != data[art]['source_second_sign']:
         result.append(
             f'{art} В базе {data[art]["source_first_sign"]}{data[art]["source_second_sign"]}, расчет {first_sign}{second_sign}\n')
+
+with open('output/result.txt', 'w') as text:
+    for note in result:
+        text.write(note)
 
 print(*result)

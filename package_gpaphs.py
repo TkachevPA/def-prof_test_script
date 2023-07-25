@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 import pandas as pd
 
-from parser import new_data as data
+from parser import completed_data as data
 from main import first_sign, second_sign, result
 
 res = [i.split(' ')[0] for i in result]
@@ -21,7 +21,6 @@ for art in res:
     fig = plt.figure(figsize=(13, 7))
     plt.title(
         f'{art} признаки в базе {data[art]["source_first_sign"]}{data[art]["source_second_sign"]}\n'
-        # f'Расчетные признаки {first_sign}{second_sign} '
     )
     plt.plot(data[art]['remains'], color='blue', marker='.', label='Остатки')
     plt.plot(deficit, color='red', marker='.', label='Дефицит')
